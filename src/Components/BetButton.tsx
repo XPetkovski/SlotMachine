@@ -6,8 +6,6 @@ interface BetProps {
     increment?: number;
     bets: number[];
     onWagerChanged(newWager: number): void;
-    betsContainerHeight: string;
-    betsContainerWidth: string;
 }
 // All elements' styles from the HTML are placed in specific css file for better code readability
 export function BetButton(props: BetProps) {
@@ -73,38 +71,43 @@ export function BetButton(props: BetProps) {
             </div>
 
             {showBets && (
-                <div className="BetButton-bets-container" style={{ zIndex: 2 }}>
+                <div className="BetButton-bets-container">
+                    <h2>BET</h2>
                     <div className="BetButton-bet-selection">
-                        {Array.from(Array(Math.ceil(props.bets.length / 2))).map((_, rowIndex) => (
+                        {[...Array(Math.ceil(props.bets.length / 2))].map((_, rowIndex) => (
                             <div key={rowIndex} className="BetButton-bet-row">
-                                {[0, 1].map(colIndex => {
+                                {[...Array(2)].map((_, colIndex) => {
                                     const index = rowIndex * 2 + colIndex;
                                     if (index >= props.bets.length) return null;
                                     return (
-                                        <button
-                                            onClick={() => {
-                                                setWager(props.bets[index]);
-                                                setHighlightedWager(index);
-                                            }}
-                                            className={`BetButton-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
-                                        >
-                                            {props.bets[index]}
-                                        </button>
+                                        <div key={`${rowIndex}-${colIndex}`} style={{ display: 'inline-flex', alignItems: 'stretch' }}>
+                                            <button
+                                                onClick={() => {
+                                                    setWager(props.bets[index]);
+                                                    setHighlightedWager(index);
+                                                }}
+                                                className={`BetButton-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
+                                            >
+                                                {props.bets[index]}
+                                            </button>
+                                        </div>
                                     );
                                 })}
                             </div>
                         ))}
                     </div>
-                    <button onClick={handleApply} className="BetButton-apply-button"> Apply </button>
-                    <button
-                        onClick={() => {
-                            setWager(maxBet);
-                            setHighlightedWager(props.bets.length - 1); // Highlight the last element
-                        }}
-                        className="BetButton-max-bet-button"
-                    >
-                        Max Bet
-                    </button>
+                    <div className="BetButton-bets-buttons">
+                        <button onClick={handleApply} className="BetButton-apply-button"> Apply </button>
+                        <button
+                            onClick={() => {
+                                setWager(maxBet);
+                                setHighlightedWager(props.bets.length - 1);
+                            }}
+                            className="BetButton-max-bet-button"
+                        >
+                            Max Bet
+                        </button>
+                    </div>
                 </div>
             )}
         </>
