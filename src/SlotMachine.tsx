@@ -262,11 +262,14 @@ export function SlotMachine(props: SlotMachineProps) {
                 return (t: any) => --t * t * ((amount + 1) * t + amount) + 1;
             }
 
+            console.log("Starting app");
+            console.log("Ref: ", containerRef.current);
             application.start();
             setInitialized(true);
         };
 
         if (!initialized) {
+            console.log("initializing app")
             initPixi();
         }
 
