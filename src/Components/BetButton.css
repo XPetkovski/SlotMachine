@@ -9,6 +9,7 @@
     background-color: #00000080;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    z-index: 1;
 }
 
 /* Styles for individual bet buttons */
@@ -22,7 +23,7 @@
     font-size: 14px;
     font-weight: bold;
     box-shadow: 0 0 5px rgba(255, 215, 0.5);
-    flex-grow: 1;
+    flex-grow: 1!important;
 }
 
 /* Styles for the bets container */
@@ -40,6 +41,7 @@
     width: 240px;
     height: 350px;
     overflow-y: auto;
+    z-index: 2!important;
 }
 
 /* Styles for the bet selection buttons */

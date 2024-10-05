@@ -9,6 +9,7 @@ interface BetProps {
     betsContainerHeight: string;
     betsContainerWidth: string;
 }
+// All elements' styles from the HTML are placed in specific css file for better code readability
 export function BetButton(props: BetProps) {
     const [showBets, setShowBets] = useState<boolean>(false);
     const [highlightedWager, setHighlightedWager] = useState<number | undefined>(undefined);
@@ -21,11 +22,11 @@ export function BetButton(props: BetProps) {
     function incrementWager() {
         let nextBet = findNextHigherBet(props.currentWager);
 
-        // If the next bet is not the last one, highlight it
+        //highlight if the next bet is not the last one
         if (nextBet !== props.bets[props.bets.length - 1]) {
             setHighlightedWager(props.bets.indexOf(nextBet));
         } else {
-            // If it is the last one, highlight it
+            //highlight it if last one
             setHighlightedWager(props.bets.length - 1);
         }
 
@@ -36,11 +37,11 @@ export function BetButton(props: BetProps) {
         const lowerBets = props.bets.filter(bet => bet < props.currentWager);
         let nextBet = lowerBets.length > 0 ? Math.max(...lowerBets) : props.currentWager;
 
-        // If the next bet is not the first one, highlight it
+        //highlight it if next one is not the first one
         if (nextBet !== props.bets[0]) {
             setHighlightedWager(props.bets.indexOf(nextBet));
         } else {
-            // If it is the first one, highlight it
+            //highlight it if it is the first one
             setHighlightedWager(0);
         }
 
@@ -64,49 +65,15 @@ export function BetButton(props: BetProps) {
     return (
         <>
             <h1>WAGER MACHINE</h1>
-            {/* Main container */}
-            <div style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: '10px',
-                padding: '20px',
-                backgroundColor: '#00000080', // Semi-transparent black background
-                borderRadius: '10px',
-                boxShadow: '0 0 10px rgba(255, 215, 0, 0.5)', // Golden glow effect
-            }}>
-                {/* Wager button */}
 
-                {/* Increase wager button */}
-                <button
-                    onClick={decrementWager}
-                    className="BetButton-button"
-                >
-                    -
-                </button>
-
-                <button
-                    onClick={handleShowBets}
-                    className="BetButton-button"
-                >
-                    Wager: {props.currentWager}
-                </button>
-
-                <button
-                    onClick={incrementWager}
-                    className="BetButton-button"
-                >
-                    +
-                </button>
-
-
-                {/* Decrease wager button */}
-
+            <div className={"BetButton-container "}>
+                <button onClick={decrementWager} className="BetButton-button"> - </button>
+                <button onClick={handleShowBets} className="BetButton-button"> Wager: {props.currentWager} </button>
+                <button onClick={incrementWager} className="BetButton-button"> + </button>
             </div>
-            {/* Bets container */}
+
             {showBets && (
-                <div className="BetButton-bets-container">
+                <div className="BetButton-bets-container" style={{ zIndex: 2 }}>
                     <div className="BetButton-bet-selection">
                         {Array.from(Array(Math.ceil(props.bets.length / 2))).map((_, rowIndex) => (
                             <div key={rowIndex} className="BetButton-bet-row">
@@ -128,12 +95,7 @@ export function BetButton(props: BetProps) {
                             </div>
                         ))}
                     </div>
-                    <button
-                        onClick={handleApply}
-                        className="BetButton-apply-button"
-                    >
-                        Apply
-                    </button>
+                    <button onClick={handleApply} className="BetButton-apply-button"> Apply </button>
                     <button
                         onClick={() => {
                             setWager(maxBet);
