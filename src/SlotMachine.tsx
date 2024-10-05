@@ -38,9 +38,8 @@ export function SlotMachine(props: SlotMachineProps) {
             await application.init({
                 autoStart: false,
                 resizeTo: window,
-                sharedTicker: true,
+                sharedTicker: true, backgroundColor: "#ced21b"
             });
-
             containerRef.current.appendChild(application.canvas);
 
             // Load the textures
@@ -121,7 +120,7 @@ export function SlotMachine(props: SlotMachineProps) {
             // Add play text
             const style: any = new TextStyle({
                 fontFamily: 'Arial',
-                fontSize: 32,
+                fontSize: 36,
                 fontStyle: 'italic',
                 fontWeight: 'bold',
                 fill: { fill },
@@ -136,14 +135,14 @@ export function SlotMachine(props: SlotMachineProps) {
                 wordWrapWidth: 440
             });
 
-            const playText = new Text('Spin the wheels!', style);
+            const playText: Text = new Text('SPIN!', style);
 
             playText.x = Math.round((bottom.width - playText.width) / 2);
             playText.y = application.screen.height - margin + Math.round((margin - playText.height) / 2);
             bottom.addChild(playText);
 
             // Add header text
-            const headerText = new Text('PIXI MONSTER SLOTS!', style);
+            const headerText = new Text('V MACHINE SLOTS!', style);
 
             headerText.x = Math.round((top.width - headerText.width) / 2);
             headerText.y = Math.round((margin - headerText.height) / 2);
@@ -257,7 +256,6 @@ export function SlotMachine(props: SlotMachineProps) {
             }
 
             // Backout function from tweenjs.
-            // https://github.com/CreateJS/TweenJS/blob/master/src/tweenjs/Ease.js
             function backout(amount: any) {
                 return (t: any) => --t * t * ((amount + 1) * t + amount) + 1;
             }
@@ -280,7 +278,7 @@ export function SlotMachine(props: SlotMachineProps) {
 
     return (
         <div>
-            <h1>Slot Machine Game</h1>
+            {/*<h1>Slot Machine Game</h1>*/}
             <div ref={containerRef}></div>
         </div>
     );

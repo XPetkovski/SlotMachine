@@ -10,6 +10,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 215, 0.5);
     z-index: 1;
+    min-width: 263px;
 }
 
 /* Styles for individual bet buttons/ za individualnite kopcinja (+, -, wage) */
@@ -41,7 +42,7 @@
     height: auto;
     overflow-y: auto;
     z-index: 2!important;
-    /*position: absolute;*/
+    position: absolute;
 }
 
 /* Styles for the bet selection buttons/ za oblozite */

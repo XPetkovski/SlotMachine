@@ -11,11 +11,11 @@ function App() {
         // ostaveni se dvata komponenti za da gi vidite, da ne treba da komentirate edno pa drugo
         <div className="App">
             <header className="App-header">
+                <SlotMachine rowCount={4} reelCount={10} />
                 <BetButton bets={bets}
                            increment={1}
                            currentWager={wager}
                            onWagerChanged={setWager}/>
-                <SlotMachine rowCount={5} reelCount={7} />
 
             </header>
         </div>
