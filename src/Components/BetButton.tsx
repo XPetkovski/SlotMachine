@@ -65,9 +65,9 @@ export function BetButton(props: BetProps) {
             {/*<h1>WAGER MACHINE</h1>*/}
 
             <div className={"BetButton-container "}>
-                <button onClick={decrementWager} className="BetButton-button"> - </button>
-                <button onClick={handleShowBets} className="BetButton-button"> Wager: {props.currentWager} </button>
-                <button onClick={incrementWager} className="BetButton-button"> + </button>
+                <button id={"decrement-wager"} onClick={decrementWager} className="BetButton-button"> - </button>
+                <button id={"wager-value"} onClick={handleShowBets} className="BetButton-button"> Wager: {props.currentWager} </button>
+                <button id={"increment-wager"} onClick={incrementWager} className="BetButton-button"> + </button>
             </div>
 
             {showBets && (
@@ -81,7 +81,7 @@ export function BetButton(props: BetProps) {
                                     if (index >= props.bets.length) return null;
                                     return (
                                         <div key={`${rowIndex}-${colIndex}`} style={{ display: 'inline-flex', alignItems: 'stretch' }}>
-                                            <button
+                                            <button id={"bets"} key={index}
                                                 onClick={() => {
                                                     setWager(props.bets[index]);
                                                     setHighlightedWager(index);
@@ -97,8 +97,8 @@ export function BetButton(props: BetProps) {
                         ))}
                     </div>
                     <div className="BetButton-bets-buttons">
-                        <button onClick={handleApply} className="BetButton-apply-button"> Apply </button>
-                        <button
+                        <button id={"apply-bet-button"} onClick={handleApply} className="BetButton-apply-button"> Apply </button>
+                        <button id={"max-bet-button"}
                             onClick={() => {
                                 setWager(maxBet);
                                 setHighlightedWager(props.bets.length - 1);
