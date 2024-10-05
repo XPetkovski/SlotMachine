@@ -51,8 +51,8 @@ export function SlotMachine(props: SlotMachineProps) {
                 'https://pixijs.com/assets/skully.png',
             ]);
 
-            const REEL_WIDTH: number = 160;
-            const SYMBOL_SIZE: number = 150;
+            const REEL_WIDTH: number = 170;
+            const SYMBOL_SIZE: number = 160;
 
             // Create different slot symbols
             const slotTextures = [
@@ -121,7 +121,7 @@ export function SlotMachine(props: SlotMachineProps) {
             // Add play text
             const style: any = new TextStyle({
                 fontFamily: 'Arial',
-                fontSize: 36,
+                fontSize: 32,
                 fontStyle: 'italic',
                 fontWeight: 'bold',
                 fill: { fill },
@@ -133,7 +133,7 @@ export function SlotMachine(props: SlotMachineProps) {
                     distance: 6,
                 },
                 wordWrap: true,
-                wordWrapWidth: 440,
+                wordWrapWidth: 440
             });
 
             const playText = new Text('Spin the wheels!', style);
