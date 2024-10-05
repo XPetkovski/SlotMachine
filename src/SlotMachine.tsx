@@ -37,7 +37,8 @@ export function SlotMachine(props: SlotMachineProps) {
 
             await application.init({
                 autoStart: false, width: 1366, height: 768,
-                // resizeTo: window,
+                // resizeTo: window, //moze i so ova, ama za celite na prezentacija go iskomentirav, no so custom
+                //configs super bi doshlo
                 sharedTicker: true, backgroundColor: "#ced21b"
             });
             containerRef.current.appendChild(application.canvas);

@@ -11,7 +11,8 @@ function App() {
         // ostaveni se dvata komponenti za da gi vidite, da ne treba da komentirate edno pa drugo
         <div className="App">
             <header className="App-header">
-                <SlotMachine rowCount={4} reelCount={10} />
+                {/*tuka mozeme da si igrame so redici/koloni/\here we can change the rows/columns*/}
+                <SlotMachine rowCount={3} reelCount={7} />
                 <BetButton bets={bets}
                            increment={1}
                            currentWager={wager}
