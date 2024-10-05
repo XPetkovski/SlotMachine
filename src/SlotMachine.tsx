@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {
     Application,
     Assets,
@@ -13,10 +13,17 @@ import {
     FillGradient,
 } from 'pixi.js';
 
-interface SlotMachineProps {}
+interface SlotMachineProps {
+    reelCount?: number;
+    rowCount?: number;
+}
 
 export function SlotMachine(props: SlotMachineProps) {
+    const reelCount = props.reelCount ?? 5;
+    const rowCount = props.rowCount ?? 3;
+
     const containerRef = useRef<HTMLDivElement>(null);
+    const [initialized, setInitialized] = useState<boolean>(false);
 
     useEffect(() => {
         const initPixi = async () => {
@@ -59,7 +66,7 @@ export function SlotMachine(props: SlotMachineProps) {
             const reels: any = [];
             const reelContainer = new Container();
 
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < reelCount; i++) {
                 const rc = new Container();
 
                 rc.x = i * REEL_WIDTH;
@@ -78,7 +85,7 @@ export function SlotMachine(props: SlotMachineProps) {
                 rc.filters = [reel.blur];
 
                 // Build the symbols
-                for (let j = 0; j < 4; j++) {
+                for (let j = 0; j < rowCount + 1; j++) {
                     const symbol: Sprite = new Sprite(slotTextures[Math.floor(Math.random() * slotTextures.length)]);
                     // Scale the symbol to fit symbol area.
 
@@ -93,12 +100,12 @@ export function SlotMachine(props: SlotMachineProps) {
             application.stage.addChild(reelContainer);
 
             // Build top & bottom covers and position reelContainer
-            const margin = (application.screen.height - SYMBOL_SIZE * 3) / 2;
+            const margin = (application.screen.height - SYMBOL_SIZE * rowCount) / 2;
 
             reelContainer.y = margin;
-            reelContainer.x = Math.round(application.screen.width - REEL_WIDTH * 5);
+            reelContainer.x = Math.round(application.screen.width - REEL_WIDTH * reelCount);
             const top = new Graphics().rect(0, 0, application.screen.width, margin).fill({ color: 0x0 });
-            const bottom = new Graphics().rect(0, SYMBOL_SIZE * 3 + margin, application.screen.width, margin).fill({ color: 0x0 });
+            const bottom = new Graphics().rect(0, SYMBOL_SIZE * rowCount + margin, application.screen.width, margin).fill({ color: 0x0 });
 
             // Create gradient fill
             const fill = new FillGradient(0, 0, 0, 36 * 1.7);
@@ -161,8 +168,8 @@ export function SlotMachine(props: SlotMachineProps) {
 
                 for (let i = 0; i < reels.length; i++) {
                     const r = reels[i];
-                    const extra = Math.floor(Math.random() * 3);
-                    const target = r.position + 10 + i * 5 + extra;
+                    const extra = Math.floor(Math.random() * rowCount);
+                    const target = r.position + 10 + i * reelCount + extra;
                     const time = 2500 + i * 600 + extra * 600;
 
                     tweenTo(r, 'position', target, time, backout(0.5), null, i === reels.length - 1 ? reelsComplete : null);
@@ -256,14 +263,17 @@ export function SlotMachine(props: SlotMachineProps) {
             }
 
             application.start();
+            setInitialized(true);
         };
 
-        initPixi();
+        if (!initialized) {
+            initPixi();
+        }
 
         return () => {
             // Clean up Pixi.js resources here if needed
         };
-    }, []);
+    }, [initialized]);
 
     return (
         <div>

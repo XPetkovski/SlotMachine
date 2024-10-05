@@ -6,7 +6,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <SlotMachine />
+                <SlotMachine rowCount={5} reelCount={8} />
             </header>
         </div>
     );
