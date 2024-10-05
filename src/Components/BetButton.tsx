@@ -62,7 +62,7 @@ export function BetButton(props: BetProps) {
 
     return (
         <>
-            <h1>WAGER MACHINE</h1>
+            {/*<h1>WAGER MACHINE</h1>*/}
 
             <div className={"BetButton-container "}>
                 <button onClick={decrementWager} className="BetButton-button"> - </button>

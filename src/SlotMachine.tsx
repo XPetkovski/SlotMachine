@@ -32,7 +32,7 @@ export function SlotMachine(props: SlotMachineProps) {
             const application = new Application({
                 backgroundColor: 0x1099bb,
                 width: 800,
-                height: 600,
+                height: 600
             });
 
             await application.init({
@@ -51,8 +51,8 @@ export function SlotMachine(props: SlotMachineProps) {
                 'https://pixijs.com/assets/skully.png',
             ]);
 
-            const REEL_WIDTH: number = 170;
-            const SYMBOL_SIZE: number = 160;
+            const REEL_WIDTH: number = 180;
+            const SYMBOL_SIZE: number = 170;
 
             // Create different slot symbols
             const slotTextures = [
