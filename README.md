@@ -2,7 +2,7 @@ SLOT MACHINE MINI GAME
 
 The purpose of this minigame is to show off a small demo of how a online interactive game works
 
-Made using React with Typescript, Pixi.js library for graphics and html/css
+Made using React with Typescript, Pixi.js library for graphics and html/css for the purpose of faster presentation
 
 Instructions to run this:
 
