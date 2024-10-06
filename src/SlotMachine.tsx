@@ -45,10 +45,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Load the textures
             await Assets.load([
-                'https://pixijs.com/assets/eggHead.png',
-                'https://pixijs.com/assets/flowerTop.png',
-                'https://pixijs.com/assets/helmlok.png',
-                'https://pixijs.com/assets/skully.png',
+                process.env.PUBLIC_URL + '/Assets/1.png',
+                process.env.PUBLIC_URL + '/Assets/2.jpg',
+                process.env.PUBLIC_URL + '/Assets/3.png',
+                process.env.PUBLIC_URL + '/Assets/4.jpg',
             ]);
 
             const REEL_WIDTH: number = 180;
@@ -56,10 +56,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Create different slot symbols
             const slotTextures = [
-                Texture.from('https://pixijs.com/assets/eggHead.png'),
-                Texture.from('https://pixijs.com/assets/flowerTop.png'),
-                Texture.from('https://pixijs.com/assets/helmlok.png'),
-                Texture.from('https://pixijs.com/assets/skully.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/1.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/2.jpg'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/3.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/4.jpg'),
             ];
 
             // Build the reels
