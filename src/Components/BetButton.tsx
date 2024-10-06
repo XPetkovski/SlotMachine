@@ -68,20 +68,20 @@ export function BetButton(props: BetProps) {
         <>
             {/*<h1>WAGER MACHINE</h1>*/}
 
-            <div className={"BetButton-container "}>
-                <button id={"decrement-wager"} onClick={decrementWager} className="BetButton-button"> - </button>
-                <button id={"wager-value"} onClick={handleShowBets} className="BetButton-button"> Wager: {props.currentWager} </button>
-                <button id={"increment-wager"} onClick={incrementWager} className="BetButton-button"> + </button>
+            <div className={"bet-button-container "}>
+                <button id={"decrement-wager"} onClick={decrementWager} className="bet-button-button"> - </button>
+                <button id={"wager-value"} onClick={handleShowBets} className="bet-button-button"> Wager: {props.currentWager} </button>
+                <button id={"increment-wager"} onClick={incrementWager} className="bet-button-button"> + </button>
             </div>
 
             {showBets && (
                 <div className={'bet-selection-background'}>
                     <div className="bet-button-clickable-background" onClick={hideBets}></div>
-                    <div className="BetButton-bets-container">
+                    <div className="bet-button-bets-container">
                         <h2>BET</h2>
-                        <div className="BetButton-bet-selection">
+                        <div className="bet-button-bet-selection">
                             {[...Array(Math.ceil(props.bets.length / 2))].map((_, rowIndex) => (
-                                <div key={rowIndex} className="BetButton-bet-row">
+                                <div key={rowIndex} className="bet-button-bet-row">
                                     {[...Array(2)].map((_, colIndex) => {
                                         const index = rowIndex * 2 + colIndex;
                                         if (index >= props.bets.length) return null;
@@ -92,7 +92,7 @@ export function BetButton(props: BetProps) {
                                                             setWager(props.bets[index]);
                                                             setHighlightedWager(index);
                                                         }}
-                                                        className={`BetButton-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
+                                                        className={`bet-button-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
                                                 >
                                                     {props.bets[index]}
                                                 </button>
@@ -102,14 +102,14 @@ export function BetButton(props: BetProps) {
                                 </div>
                             ))}
                         </div>
-                        <div className="BetButton-bets-buttons">
-                            {/*<button id={"apply-bet-button"} onClick={handleApply} className="BetButton-apply-button"> Apply </button>*/}
+                        <div className="bet-button-bets-buttons">
+                            {/*<button id={"apply-bet-button"} onClick={handleApply} className="bet-button-apply-button"> Apply </button>*/}
                             <button id={"max-bet-button"}
                                     onClick={() => {
                                         setWager(maxBet);
                                         setHighlightedWager(props.bets.length - 1);
                                     }}
-                                    className="BetButton-max-bet-button"
+                                    className="bet-button-max-bet-button"
                             >
                                 Max Bet
                             </button>
