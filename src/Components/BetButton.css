@@ -1,5 +1,5 @@
 /* Styles for the main container/za glavniot kontejner */
-.BetButton-container {
+.bet-button-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -14,7 +14,7 @@
 }
 
 /* Styles for individual bet buttons/ za individualnite kopcinja (+, -, wage) */
-.BetButton-button {
+.bet-button-button {
     background-color: #ffcc00;
     color: #000;
     padding: 12px 18px;
@@ -28,7 +28,7 @@
 }
 
 /* Styles for the bets container/ kontejner za kaj sto se kladbite */
-.BetButton-bets-container {
+.bet-button-bets-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -68,21 +68,21 @@
 }
 
 /* Styles for the bet selection buttons/ za oblozite */
-.BetButton-bet-selection {
+.bet-button-bet-selection {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
 }
 
-.BetButton-bet-row {
+.bet-button-bet-row {
     display: flex;
     gap: 10px;
     width: 100%;
 }
 
 /* za bet kopceto / for the bet button */
-.BetButton-bet-button {
+.bet-button-bet-button {
     background-color: #ffcc00;
     color: #000;
     padding: 12px 25px;
@@ -98,7 +98,7 @@
 }
 
 /* Styles for the buttons container */
-.BetButton-bets-buttons {
+.bet-button-bets-buttons {
     display: flex;
     gap: 10px;
     margin-top: 10px;
@@ -109,13 +109,13 @@
 
 }
 
-.BetButton-apply-button,
-.BetButton-max-bet-button {
+.bet-button-apply-button,
+.bet-button-max-bet-button {
     flex-grow: 1;
 }
 
 /* Styles for the Apply button */
-.BetButton-apply-button {
+.bet-button-apply-button {
     background-color: #ffcc00;
     color: #000;
     padding: 10px 15px;
@@ -132,7 +132,7 @@
 }
 
 /* Styles for the Max Bet button */
-.BetButton-max-bet-button {
+.bet-button-max-bet-button {
     background-color: #ff6600;
     color: #fff;
     padding: 10px 15px;
@@ -145,7 +145,7 @@
 }
 
 /* New styles for the bet grid */
-.BetButton-bet-grid {
+.bet-button-bet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
@@ -154,7 +154,7 @@
 }
 
 @media (min-width: 768px) {
-    .BetButton-bet-grid {
+    .bet-button-bet-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
