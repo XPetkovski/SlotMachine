@@ -16,3 +16,4 @@ Features of this Slots demo:
 - The components are reusable, which means you can configurate how many reels (rows,columns) you want for the game
 - The betting button is custom and reusable with configurations for its style, how many bet values there are (array),
   increment, current wager and function to change all of before
+- Custom reels: the administrator can easily change the pictures of the game, it's reusable and easily customizable
