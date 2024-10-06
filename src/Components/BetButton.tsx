@@ -10,7 +10,7 @@ interface BetProps {
 // All elements' styles from the HTML are placed in specific css file for better code readability
 export function BetButton(props: BetProps) {
     const [showBets, setShowBets] = useState<boolean>(false);
-    const [highlightedWager, setHighlightedWager] = useState<number | undefined>(undefined);
+    const [highlightedWager, setHighlightedWager] = useState<number | undefined>(1);
 
     function findNextHigherBet(currentBet: number): number {
         const higherBets = props.bets.filter(bet => bet > currentBet);
