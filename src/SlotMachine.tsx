@@ -124,8 +124,8 @@ export function SlotMachine(props: SlotMachineProps) {
                 fontSize: 36,
                 fontStyle: 'normal',
                 fontWeight: 'bold',
-                fill: '#f8f6f6', // Golden color
-                stroke: { color: '#8B4513', width: 5 }, // Brown stroke
+                fill: '#f8f6f6',
+                stroke: { color: '#8B4513', width: 5 },
                 dropShadow: {
                     color: 0x000000,
                     alpha: 0.5,
@@ -143,7 +143,7 @@ export function SlotMachine(props: SlotMachineProps) {
                 fontStyle: 'normal',
                 fontWeight: 'bold',
                 fill: '#FFD700', // Golden color
-                stroke: { color: '#8B4513', width: 5 }, // Brown stroke
+                stroke: { color: '#8B4513', width: 5 },
                 // dropShadow: {
                 //     color: 0x000000,
                 //     alpha: 0.5,
@@ -153,7 +153,7 @@ export function SlotMachine(props: SlotMachineProps) {
                 // },
                 wordWrap: true,
                 wordWrapWidth: 440,
-                letterSpacing: 5, // Adds space between letters
+                letterSpacing: 5,
             });
 
             const playText: Text = new Text('SPIN!', spinButtonStyle);
@@ -316,9 +316,10 @@ export function SlotMachine(props: SlotMachineProps) {
             initPixi();
         }
 
-        return () => {
+        // return () => {
             // Clean up Pixi.js resources here if needed
-        };
+        // };
+
     }, [initialized]);
 
     return (
