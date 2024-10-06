@@ -36,7 +36,7 @@ export function SlotMachine(props: SlotMachineProps) {
             });
 
             await application.init({
-                autoStart: false, width: 1366, height: 768,
+                autoStart: false, width: 1366, height: 766,
                 // resizeTo: window, //moze i so ova, ama za celite na prezentacija go iskomentirav, no so custom
                 //configs super bi doshlo
                 sharedTicker: true, backgroundColor: "#ced21b"
@@ -54,7 +54,7 @@ export function SlotMachine(props: SlotMachineProps) {
             const REEL_WIDTH: number = 180;
             const SYMBOL_SIZE: number = 170;
 
-            // Create different slot symbols
+            // Create different slot symbols / staviv moi sliki kolku za demonstracija i reiskoristlivost na igrata
             const slotTextures = [
                 Texture.from(process.env.PUBLIC_URL + '/Assets/5.jpg'),
                 Texture.from(process.env.PUBLIC_URL + '/Assets/6.png'),
@@ -124,7 +124,7 @@ export function SlotMachine(props: SlotMachineProps) {
                 fontSize: 36,
                 fontStyle: 'normal',
                 fontWeight: 'bold',
-                fill: '#FFD700', // Golden color
+                fill: '#f8f6f6', // Golden color
                 stroke: { color: '#8B4513', width: 5 }, // Brown stroke
                 dropShadow: {
                     color: 0x000000,
@@ -144,13 +144,13 @@ export function SlotMachine(props: SlotMachineProps) {
                 fontWeight: 'bold',
                 fill: '#FFD700', // Golden color
                 stroke: { color: '#8B4513', width: 5 }, // Brown stroke
-                dropShadow: {
-                    color: 0x000000,
-                    alpha: 0.5,
-                    angle: Math.PI / 6,
-                    blur: 8,
-                    distance: 12,
-                },
+                // dropShadow: {
+                //     color: 0x000000,
+                //     alpha: 0.5,
+                //     angle: Math.PI / 6,
+                //     blur: 8,
+                //     distance: 12,
+                // },
                 wordWrap: true,
                 wordWrapWidth: 440,
                 letterSpacing: 5, // Adds space between letters
@@ -165,21 +165,21 @@ export function SlotMachine(props: SlotMachineProps) {
             playText.y = application.screen.height / 2; // Center vertically
 
             // Add a pulsing effect/ da pulsira kopceto
-            let pulseScale = 1;
-            application.ticker.add(() => {
-                pulseScale += 0.01;
-                playText.scale.set(pulseScale);
-                if (pulseScale > 1.05) {
-                    pulseScale = 0.95;
-                }
-            });
+            // let pulseScale = 0.5;
+            // application.ticker.add(() => {
+            //     pulseScale += 0.01;
+            //     playText.scale.set(pulseScale);
+            //     if (pulseScale > 1) {
+            //         pulseScale = 0.6;
+            //     }
+            // });
 
             // Add a rotation effect/ efekt za rotacija
             let rotation = 0;
             application.ticker.add(() => {
-                rotation += 0.01;
-                playText.rotation = Math.sin(rotation) * 0.05;
-                headerText.rotation = Math.sin(rotation) * 0.04;
+                rotation += 0.03;
+                playText.rotation = Math.sin(rotation) * 0.07;
+                headerText.rotation = Math.sin(rotation) * 0.03;
             });
 
             playText.x = Math.round((bottom.width - playText.width) / 2);
