@@ -45,10 +45,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Load the textures
             await Assets.load([
-                process.env.PUBLIC_URL + '/Assets/5.jpg',
-                process.env.PUBLIC_URL + '/Assets/6.png',
-                process.env.PUBLIC_URL + '/Assets/7.png',
-                process.env.PUBLIC_URL + '/Assets/8.jpg',
+                process.env.PUBLIC_URL + '/Assets/9.webp',
+                process.env.PUBLIC_URL + '/Assets/10.png',
+                process.env.PUBLIC_URL + '/Assets/11.webp',
+                process.env.PUBLIC_URL + '/Assets/12.webp',
             ]);
 
             const REEL_WIDTH: number = 180;
@@ -56,10 +56,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Create different slot symbols / staviv moi sliki kolku za demonstracija i reiskoristlivost na igrata
             const slotTextures = [
-                Texture.from(process.env.PUBLIC_URL + '/Assets/5.jpg'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/6.png'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/7.png'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/8.jpg'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/9.webp'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/10.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/11.webp'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/12.webp'),
             ];
 
             // Build the reels
