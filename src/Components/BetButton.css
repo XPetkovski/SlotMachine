@@ -35,14 +35,35 @@
     align-items: center;
     margin-top: 20px;
     padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
     background-color: #00000080;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 215, 0.5);
     width: 300px; /* Increased width to accommodate 3 buttons per row */
     height: auto;
     overflow-y: auto;
-    z-index: 2!important;
+    z-index: 3!important;
     position: absolute;
+}
+
+.bet-selection-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bet-button-clickable-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: transparent;
+    z-index: 2!important;
 }
 
 /* Styles for the bet selection buttons/ za oblozite */

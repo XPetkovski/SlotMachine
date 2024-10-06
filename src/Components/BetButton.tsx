@@ -58,6 +58,10 @@ export function BetButton(props: BetProps) {
         setShowBets(false);
     }
 
+    function hideBets() {
+        setShowBets(false);
+    }
+
     const maxBet = Math.max(...props.bets);
 
     return (
@@ -71,42 +75,45 @@ export function BetButton(props: BetProps) {
             </div>
 
             {showBets && (
-                <div className="BetButton-bets-container">
-                    <h2>BET</h2>
-                    <div className="BetButton-bet-selection">
-                        {[...Array(Math.ceil(props.bets.length / 2))].map((_, rowIndex) => (
-                            <div key={rowIndex} className="BetButton-bet-row">
-                                {[...Array(2)].map((_, colIndex) => {
-                                    const index = rowIndex * 2 + colIndex;
-                                    if (index >= props.bets.length) return null;
-                                    return (
-                                        <div key={`${rowIndex}-${colIndex}`} style={{ display: 'inline-flex', alignItems: 'stretch' }}>
-                                            <button id={"bets"} key={index}
-                                                onClick={() => {
-                                                    setWager(props.bets[index]);
-                                                    setHighlightedWager(index);
-                                                }}
-                                                className={`BetButton-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
-                                            >
-                                                {props.bets[index]}
-                                            </button>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        ))}
-                    </div>
-                    <div className="BetButton-bets-buttons">
-                        <button id={"apply-bet-button"} onClick={handleApply} className="BetButton-apply-button"> Apply </button>
-                        <button id={"max-bet-button"}
-                            onClick={() => {
-                                setWager(maxBet);
-                                setHighlightedWager(props.bets.length - 1);
-                            }}
-                            className="BetButton-max-bet-button"
-                        >
-                            Max Bet
-                        </button>
+                <div className={'bet-selection-background'}>
+                    <div className="bet-button-clickable-background" onClick={hideBets}></div>
+                    <div className="BetButton-bets-container">
+                        <h2>BET</h2>
+                        <div className="BetButton-bet-selection">
+                            {[...Array(Math.ceil(props.bets.length / 2))].map((_, rowIndex) => (
+                                <div key={rowIndex} className="BetButton-bet-row">
+                                    {[...Array(2)].map((_, colIndex) => {
+                                        const index = rowIndex * 2 + colIndex;
+                                        if (index >= props.bets.length) return null;
+                                        return (
+                                            <div key={`${rowIndex}-${colIndex}`} style={{ display: 'inline-flex', alignItems: 'stretch' }}>
+                                                <button id={"bets"} key={index}
+                                                        onClick={() => {
+                                                            setWager(props.bets[index]);
+                                                            setHighlightedWager(index);
+                                                        }}
+                                                        className={`BetButton-bet-button ${highlightedWager === index ? 'highlighted' : ''}`}
+                                                >
+                                                    {props.bets[index]}
+                                                </button>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ))}
+                        </div>
+                        <div className="BetButton-bets-buttons">
+                            {/*<button id={"apply-bet-button"} onClick={handleApply} className="BetButton-apply-button"> Apply </button>*/}
+                            <button id={"max-bet-button"}
+                                    onClick={() => {
+                                        setWager(maxBet);
+                                        setHighlightedWager(props.bets.length - 1);
+                                    }}
+                                    className="BetButton-max-bet-button"
+                            >
+                                Max Bet
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}

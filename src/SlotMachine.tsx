@@ -45,10 +45,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Load the textures
             await Assets.load([
-                process.env.PUBLIC_URL + '/Assets/1.png',
-                process.env.PUBLIC_URL + '/Assets/2.jpg',
-                process.env.PUBLIC_URL + '/Assets/3.png',
-                process.env.PUBLIC_URL + '/Assets/4.jpg',
+                process.env.PUBLIC_URL + '/Assets/5.jpg',
+                process.env.PUBLIC_URL + '/Assets/6.png',
+                process.env.PUBLIC_URL + '/Assets/7.png',
+                process.env.PUBLIC_URL + '/Assets/8.jpg',
             ]);
 
             const REEL_WIDTH: number = 180;
@@ -56,10 +56,10 @@ export function SlotMachine(props: SlotMachineProps) {
 
             // Create different slot symbols
             const slotTextures = [
-                Texture.from(process.env.PUBLIC_URL + '/Assets/1.png'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/2.jpg'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/3.png'),
-                Texture.from(process.env.PUBLIC_URL + '/Assets/4.jpg'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/5.jpg'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/6.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/7.png'),
+                Texture.from(process.env.PUBLIC_URL + '/Assets/8.jpg'),
             ];
 
             // Build the reels
@@ -119,31 +119,75 @@ export function SlotMachine(props: SlotMachineProps) {
             });
 
             // Add play text
-            const style: any = new TextStyle({
-                fontFamily: 'Arial',
+            const gameTitleStyle: any = new TextStyle({
+                fontFamily: 'Arial Black',
                 fontSize: 36,
-                fontStyle: 'italic',
+                fontStyle: 'normal',
                 fontWeight: 'bold',
-                fill: { fill },
-                stroke: { color: 0x4a1850, width: 5 },
+                fill: '#FFD700', // Golden color
+                stroke: { color: '#8B4513', width: 5 }, // Brown stroke
                 dropShadow: {
                     color: 0x000000,
+                    alpha: 0.5,
                     angle: Math.PI / 6,
-                    blur: 4,
-                    distance: 6,
+                    blur: 8,
+                    distance: 12,
                 },
                 wordWrap: true,
-                wordWrapWidth: 440
+                wordWrapWidth: 440,
             });
 
-            const playText: Text = new Text('SPIN!', style);
+            const spinButtonStyle: any = new TextStyle({
+                fontFamily: 'Arial Black',
+                fontSize: 36,
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                fill: '#FFD700', // Golden color
+                stroke: { color: '#8B4513', width: 5 }, // Brown stroke
+                dropShadow: {
+                    color: 0x000000,
+                    alpha: 0.5,
+                    angle: Math.PI / 6,
+                    blur: 8,
+                    distance: 12,
+                },
+                wordWrap: true,
+                wordWrapWidth: 440,
+                letterSpacing: 5, // Adds space between letters
+            });
+
+            const playText: Text = new Text('SPIN!', spinButtonStyle);
+
+            // Add some extra effects/ ekstra efekti
+            // Center the text/ centriranje tekst
+            playText.anchor.set(0.5); // Set anchor to center
+            playText.x = application.screen.width / 2; // Center horizontally
+            playText.y = application.screen.height / 2; // Center vertically
+
+            // Add a pulsing effect/ da pulsira kopceto
+            let pulseScale = 1;
+            application.ticker.add(() => {
+                pulseScale += 0.01;
+                playText.scale.set(pulseScale);
+                if (pulseScale > 1.05) {
+                    pulseScale = 0.95;
+                }
+            });
+
+            // Add a rotation effect/ efekt za rotacija
+            let rotation = 0;
+            application.ticker.add(() => {
+                rotation += 0.01;
+                playText.rotation = Math.sin(rotation) * 0.05;
+                headerText.rotation = Math.sin(rotation) * 0.04;
+            });
 
             playText.x = Math.round((bottom.width - playText.width) / 2);
             playText.y = application.screen.height - margin + Math.round((margin - playText.height) / 2);
             bottom.addChild(playText);
 
             // Add header text
-            const headerText = new Text('V MACHINE SLOTS!', style);
+            const headerText = new Text('V MACHINE SLOTS!', gameTitleStyle);
 
             headerText.x = Math.round((top.width - headerText.width) / 2);
             headerText.y = Math.round((margin - headerText.height) / 2);
