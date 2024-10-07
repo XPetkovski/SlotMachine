@@ -13,6 +13,7 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.0",
     "pixi.js": "^8.4.1",
+    "playwright": "^1.47.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -22,7 +23,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:e2e": "playwright test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.47.2",
     "@testing-library/react": "^16.0.1",
     "@types/pixi.js": "^5.0.0"
   }
