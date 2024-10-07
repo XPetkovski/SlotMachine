@@ -21,6 +21,7 @@ Features of this Slots demo:
   increment, current wager and function to change all of before
 - Custom reels: the administrator can easily change the pictures of the game, it's reusable and easily customizable
 - Automated tests that test the components
+- Animations on the spin button, animations on the title of the game to be more flashy.
 
 How to run the tests: 
 1. npx playwright install
