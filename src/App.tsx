@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import {BetButton} from "./Components/BetButton";
-import {SlotMachine} from "./SlotMachine";
+import {SlotMachine} from "./Components/SlotMachine";
 
 function App() {
     const [wager, setWager] = useState<number>(1);
