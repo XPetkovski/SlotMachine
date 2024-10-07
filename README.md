@@ -3,6 +3,7 @@ SLOT MACHINE MINI GAME
 The purpose of this minigame is to show off a small demo of how a online interactive game works
 
 Made using React with Typescript, Pixi.js library for graphics and html/css for the purpose of faster presentation
+and for automated tests Playwright/Jest
 
 Instructions to run this:
 
@@ -17,3 +18,9 @@ Features of this Slots demo:
 - The betting button is custom and reusable with configurations for its style, how many bet values there are (array),
   increment, current wager and function to change all of before
 - Custom reels: the administrator can easily change the pictures of the game, it's reusable and easily customizable
+- Automated tests that test the components
+
+How to run the tests: 
+1. npx playwright install
+2. npx playwright test
+- This should launch the automated tests
