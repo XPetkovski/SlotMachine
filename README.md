@@ -1,5 +1,7 @@
 SLOT MACHINE MINI GAME
 
+![image](https://github.com/user-attachments/assets/c61774f8-3173-4dd5-bc68-89c85543b183)
+
 The purpose of this minigame is to show off a small demo of how a online interactive game works
 
 Made using React with Typescript, Pixi.js library for graphics and html/css for the purpose of faster presentation
@@ -25,4 +27,3 @@ How to run the tests:
 2. npx playwright test
 - This should launch the automated tests
 
-![image](https://github.com/user-attachments/assets/c61774f8-3173-4dd5-bc68-89c85543b183)
