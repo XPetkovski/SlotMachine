@@ -24,3 +24,5 @@ How to run the tests:
 1. npx playwright install
 2. npx playwright test
 - This should launch the automated tests
+
+![image](https://github.com/user-attachments/assets/c61774f8-3173-4dd5-bc68-89c85543b183)
