@@ -1,6 +1,8 @@
 SLOT MACHINE MINI GAME
 
-![image](https://github.com/user-attachments/assets/c61774f8-3173-4dd5-bc68-89c85543b183)
+![image](https://github.com/user-attachments/assets/daece75f-e86d-42eb-af6d-8dc5cbfa1594)
+![image](https://github.com/user-attachments/assets/e2d2b0ea-dcc0-4400-a3ea-e5565aa30c65)
+
 
 The purpose of this minigame is to show off a small demo of how a online interactive game works
 
