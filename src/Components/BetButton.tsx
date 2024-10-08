@@ -78,7 +78,7 @@ export function BetButton(props: BetProps) {
                 <div className={'bet-selection-background'}>
                     <div className="bet-button-clickable-background" onClick={hideBets}></div>
                     <div className="bet-button-bets-container">
-                        <h2>BET</h2>
+                        <h2 style={{color: "white"}}>BET</h2>
                         <div className="bet-button-bet-selection">
                             {[...Array(Math.ceil(props.bets.length / 2))].map((_, rowIndex) => (
                                 <div key={rowIndex} className="bet-button-bet-row">
