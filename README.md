@@ -23,6 +23,7 @@ Features of this Slots demo:
 - Custom reels: the administrator can easily change the pictures of the game, it's reusable and easily customizable
 - Automated tests that test the components
 - Animations on the spin button, animations on the title of the game to be more flashy.
+- Background image for more immersion
 
 How to run the tests: 
 1. npx playwright install
