@@ -12,7 +12,7 @@ function App() {
         <div className="App">
             <header className="App-header">
                 {/*tuka mozeme da si igrame so redici/koloni/\here we can change the rows/columns*/}
-                <SlotMachine rowCount={3} reelCount={7} />
+                <SlotMachine rowCount={3} reelCount={7} spinSpeed={80} spinDuration={2500} />
                 <BetButton bets={bets}
                            increment={1}
                            currentWager={wager}

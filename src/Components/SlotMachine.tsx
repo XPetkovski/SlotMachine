@@ -16,11 +16,15 @@ import {
 interface SlotMachineProps {
     reelCount?: number;
     rowCount?: number;
+    spinSpeed?: number;
+    spinDuration?: number;
 }
 
 export function SlotMachine(props: SlotMachineProps) {
     const reelCount = props.reelCount ?? 5;
     const rowCount = props.rowCount ?? 3;
+    const spinSpeed = props.spinSpeed ?? 60; // Default speed in pixels per frame
+    const spinDuration = props.spinDuration ?? 3000; // Default duration in milliseconds
 
     const containerRef = useRef<HTMLDivElement>(null);
     const [initialized, setInitialized] = useState<boolean>(false);
@@ -214,9 +218,9 @@ export function SlotMachine(props: SlotMachineProps) {
                     const r = reels[i];
                     const extra = Math.floor(Math.random() * rowCount);
                     const target = r.position + 10 + i * reelCount + extra;
-                    const time = 2500 + i * 600 + extra * 600;
+                    const time = spinDuration + i * 600 + extra * 600;
 
-                    tweenTo(r, 'position', target, time, backout(0.5), null, i === reels.length - 1 ? reelsComplete : null);
+                    tweenTo(r, 'position', target, time, backout(spinSpeed / 60), null, i === reels.length - 1 ? reelsComplete : null);
                 }
             }
 
@@ -231,9 +235,7 @@ export function SlotMachine(props: SlotMachineProps) {
                 for (let i = 0; i < reels.length; i++) {
                     const r = reels[i];
                     // Update blur filter y amount based on speed.
-                    // This would be better if calculated with time in mind also. Now blur depends on frame rate.
-
-                    r.blur.strengthY = (r.position - r.previousPosition) * 8;
+                    r.blur.strengthY = (r.position - r.previousPosition) * (spinSpeed / 30);
                     r.previousPosition = r.position;
 
                     // Update symbol positions on reel.
@@ -244,7 +246,6 @@ export function SlotMachine(props: SlotMachineProps) {
                         s.y = ((r.position + j) % r.symbols.length) * SYMBOL_SIZE - SYMBOL_SIZE;
                         if (s.y < 0 && prevy > SYMBOL_SIZE) {
                             // Detect going over and swap a texture.
-                            // This should in proper product be determined from some logical reel.
                             s.texture = slotTextures[Math.floor(Math.random() * slotTextures.length)];
                             s.scale.x = s.scale.y = Math.min(SYMBOL_SIZE / s.texture.width, SYMBOL_SIZE / s.texture.height);
                             s.x = Math.round((SYMBOL_SIZE - s.width) / 2);
@@ -301,8 +302,8 @@ export function SlotMachine(props: SlotMachineProps) {
             }
 
             // Backout function from tweenjs.
-            function backout(amount: any) {
-                return (t: any) => --t * t * ((amount + 1) * t + amount) + 1;
+            function backout(amount: number) {
+                return (t: number) => --t * t * ((amount + 1) * t + amount) + 1;
             }
 
             console.log("Starting app");
