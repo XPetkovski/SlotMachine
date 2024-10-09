@@ -21,6 +21,7 @@ Features of this Slots demo:
 - The betting button is custom and reusable with configurations for its style, how many bet values there are (array),
   increment, current wager and function to change all of before
 - Custom reels: the administrator can easily change the pictures of the game, it's reusable and easily customizable
+- Custom spin speed and speed duration that can easily get changed in the component's configuration
 - Automated tests that test the components
 - Animations on the spin button, animations on the title of the game to be more flashy.
 - Background image for more immersion
